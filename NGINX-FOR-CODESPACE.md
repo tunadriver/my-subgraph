@@ -54,4 +54,10 @@ server_names_hash_bucket_size 128;
 
 sudo nginx -s reload
 
+==============
+Check that Nginx is listening to port 8545 and redirecting properly
+
+sudo netstat -tulpn | grep :8545
+
+sudo service nginx status  
 
