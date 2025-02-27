@@ -29,7 +29,6 @@ sudo ln -s /etc/nginx/sites-available/hardhat /etc/nginx/sites-enabled/
 
 sudo nginx
 
-sudo service restart nginx
 sudo service nginx restart
 
 service 
