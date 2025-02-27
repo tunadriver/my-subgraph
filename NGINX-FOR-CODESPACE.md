@@ -4,6 +4,8 @@ sudo apt install -y nginx
 
 nginx -v
 
+sudo nginx -t
+
 sudo nano /etc/nginx/sites-available/hardhat
 ==============
 server {
