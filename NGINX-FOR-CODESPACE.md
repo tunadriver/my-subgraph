@@ -59,5 +59,7 @@ Check that Nginx is listening to port 8545 and redirecting properly
 
 sudo netstat -tulpn | grep :8545
 
+sudo ss -tulpn | grep :8545
+
 sudo service nginx status  
 
