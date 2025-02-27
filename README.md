@@ -3,6 +3,8 @@
 BASECAMP: https://basecamp.thegraph.com/mission-1
 
 
+npm i @graphprotocol/graph-ts
+
 The Graph for TUNA Driver
 
 First Block: 14092133
