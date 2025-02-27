@@ -63,3 +63,16 @@ sudo ss -tulpn | grep :8545
 
 sudo service nginx status  
 
+
+=====================
+Add the following configuration to nginx.conf:
+
+location / {
+  add_header 'Access-Control-Allow-Origin' '*' always;
+  add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+  add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type';
+  if ($request_method = OPTIONS) {
+    return 204;
+  }
+}
+
