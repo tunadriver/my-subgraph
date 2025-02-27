@@ -30,6 +30,7 @@ sudo ln -s /etc/nginx/sites-available/hardhat /etc/nginx/sites-enabled/
 sudo nginx
 
 sudo service restart nginx
+sudo service nginx restart
 
 service 
 
@@ -40,3 +41,17 @@ ngrok http 8545
 curl -X POST https://potential-space-potato-jjrxv7q69pgw3p44j-8545.app.github.dev/ \
      -H "Content-Type: application/json" \
      --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
+
+
+=============
+Run the following command to open the configuration file:
+
+sudo nano /etc/nginx/nginx.conf
+
+server_names_hash_bucket_size 128;
+
+==================
+
+sudo nginx -s reload
+
+
