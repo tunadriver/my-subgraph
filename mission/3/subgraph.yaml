@@ -1,0 +1,32 @@
+specVersion: 1.0.0
+description: Moon
+repository: https://github.com/scaffold-eth/se-2/packages/subgraph/
+schema:
+    file: ./src/schema.graphql
+dataSources:
+    - kind: ethereum/contract
+      name: Moon
+      network: base-sepolia
+      source:
+          abi: Moon
+          address: "0x77da57BFc3Ef443190f717A51E86FbC761EEDa88"
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.7
+          language: wasm/assemblyscript
+          entities:
+              - OwnershipTransferred
+              - Approval
+              - Transfer
+              - Holder
+          abis:
+              - name: Moon
+                file: ./abis/localhost_Moon.json
+          eventHandlers:
+              - event: OwnershipTransferred(indexed address,indexed address)
+                handler: handleOwnershipTransferred
+              - event: Approval(indexed address,indexed address,uint256)
+                handler: handleApproval
+              - event: Transfer(indexed address,indexed address,uint256)
+                handler: handleTransfer
+          file: ./src/mapping.ts
