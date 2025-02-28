@@ -1,0 +1,12 @@
+{
+  "localhost": {
+    "Moon": {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+    }
+  },
+  "base-sepolia": {
+    "Moon": {
+      "address": "0x77da57BFc3Ef443190f717A51E86FbC761EEDa88"
+    }
+  }
+}
