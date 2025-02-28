@@ -14,7 +14,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 // STEP 2: Inherit the ERC20 contract from OpenZeppelin
 contract Moon is ERC20, Ownable {
     // STEP 3: Add your burner wallet where you will mint tokens to
-    address public burner = 0x101203226853b7D0b892D2EAfD5Da91Ff6428245; 
+    address public burner = 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045; 
     
     // STEP 4: Add your initial supply
     uint256 public constant INITIAL_SUPPLY = 1000000 * 10**18; // 1 million tokens with 18 decimals
