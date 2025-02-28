@@ -1,0 +1,40 @@
+# OwnershipTransferred event
+type OwnershipTransferred @entity(immutable: true) {
+    id: Bytes!
+    previousOwner: Bytes! # address
+    newOwner: Bytes! # address
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type Approval @entity(immutable: true) {
+    id: Bytes!
+    owner: Bytes! # address
+    spender: Bytes! # address
+    value: BigInt!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type Transfer @entity(immutable: true) {
+    id: Bytes!
+    from: Holder! # Liên kết với Holder
+    to: Holder!   # Liên kết với Holder
+    value: BigInt!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type Holder @entity {
+    id: Bytes! # Địa chỉ của holder
+    balance: BigInt!
+    blockNumber: BigInt! # Block gần nhất có thay đổi
+    blockTimestamp: BigInt! # Timestamp gần nhất
+    transactionHash: Bytes! # Giao dịch gần nhất
+    transfers: [Transfer!]! # Danh sách tổng hợp các Transfer liên quan (cả gửi và nhận)
+    transfersSent: [Transfer!]! @derivedFrom(field: "from") # Các Transfer gửi đi
+    transfersReceived: [Transfer!]! @derivedFrom(field: "to") # Các Transfer nhận được
+}
